@@ -1,0 +1,13 @@
+[Unit]
+Description=My Demo Server
+
+[Service]
+Type=simple
+ExecStart=/vagrant/main
+Restart=always
+RestartSec=1s
+WorkingDirectory=/vagrant
+User=root
+
+[Install]
+WantedBy=multi-user.target

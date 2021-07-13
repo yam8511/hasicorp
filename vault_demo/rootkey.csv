@@ -1,0 +1,12 @@
+export AWS_ACCESS_KEY_ID=AKIAR6S57M3DFCIM4MOX
+export AWS_SECRET_ACCESS_KEY=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
+
+    $ export VAULT_ADDR='http://127.0.0.1:8200'
+
+The unseal key and root token are displayed below in case you want to
+seal/unseal the Vault or re-authenticate.
+
+Unseal Key: a2BJ5tMyzQUIjF7GxQfGHy18nP22luoNAcYaH8lslI0=
+Root Token: s.L299sf3uUZ19QQhGnPJBcEhj
+
+export VAULT_TOKEN="s.L299sf3uUZ19QQhGnPJBcEhj"

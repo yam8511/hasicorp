@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    node_01:
+        image: ubuntu
+        tty: true
+        privileged: true
+        ports:
+            - 4646:4646
+            - 8500:8500
+            - 9998-9999:9998-9999
+        volumes:
+            - .:/app
+
+    node_02:
+        image: ubuntu
+        privileged: true
+        tty: true
+        volumes:
+            - .:/app
+
+    node_03:
+        image: ubuntu
+        privileged: true
+        tty: true
+        volumes:
+            - .:/app
+
+    node_04:
+        image: ubuntu
+        privileged: true
+        tty: true
+        volumes:
+            - .:/app
+
+    node_05:
+        image: ubuntu
+        privileged: true
+        tty: true
+        volumes:
+            - .:/app

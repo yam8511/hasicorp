@@ -1,22 +1,22 @@
 name = "node02"
-data_dir = "/home/vagrant/node02/nomad/data/"
+data_dir = "/app/nomad/node02/data/"
 
-bind_addr = "192.168.33.12"
+bind_addr = "0.0.0.0"
 advertise {
   # Defaults to the first private IP address.
-  http = "192.168.33.12"
-  rpc  = "192.168.33.12"
-  serf = "192.168.33.12"
+  http = "node_02"
+  rpc  = "node_02"
+  serf = "node_02"
 }
 
 log_level = "INFO"
-log_file = "/home/vagrant/node02/nomad/logs/"
+log_file = "/app/nomad/node02/logs/"
 log_rotate_duration = "24h"
 log_rotate_max_files = 0
 
 server {
   enabled          = true
-  // bootstrap_expect = 3
+  bootstrap_expect = 3
   # This is the IP address of the first server provisioned
   // server_join {
   //   retry_join = [
@@ -28,12 +28,18 @@ server {
   // }
 }
 
-// client {
-//   enabled = true
-// }
+client {
+  enabled = true
+}
 
-# You do not need to add this to your configuration file. This is an example
-# that is part of Nomad's internal default configuration for Consul integration.
+plugin "raw_exec" {
+  config {
+    enabled = true
+  }
+}
+
+// # You do not need to add this to your configuration file. This is an example
+// # that is part of Nomad's internal default configuration for Consul integration.
 // consul {
 //   # The address to the Consul agent.
 //   address = "192.168.33.1:8500"

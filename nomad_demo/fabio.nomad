@@ -6,6 +6,11 @@ job "fabio" {
   //   weight    = 1
   // }
 
+  constraint {
+    attribute = "${attr.unique.network.ip-address}"
+    value     = "172.21.0.2"
+  }
+
   group "LB" {
 
     network {
@@ -17,10 +22,10 @@ job "fabio" {
         }
     }
 
-    count = 3
+    count = 1
 
     task "server" {
-      driver = "raw_exec"
+      driver = "exec"
 
       config {
         command = "fabio"
@@ -34,6 +39,9 @@ job "fabio" {
         source = "https://github.com/fabiolb/fabio/releases/download/v1.5.15/fabio-1.5.15-go1.15.5-${attr.kernel.name}_amd64"
         destination = "local/fabio"
         mode = "file"
+        options {
+          checksum = "md5:14c7a02ca95fb00a4f3010eab4e3c0e354a3f4953d2a793cb800332012f42066"
+        }
       }
     }
   }

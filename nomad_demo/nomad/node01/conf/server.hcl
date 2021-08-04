@@ -1,16 +1,16 @@
 name = "node01"
-data_dir = "/home/vagrant/node01/nomad/data/"
+data_dir = "/app/nomad/node01/data/"
 
-bind_addr = "192.168.33.11"
+bind_addr = "0.0.0.0"
 advertise {
   # Defaults to the first private IP address.
-  http = "192.168.33.11"
-  rpc  = "192.168.33.11"
-  serf = "192.168.33.11"
+  http = "node_01"
+  rpc  = "node_01"
+  serf = "node_01"
 }
 
 log_level = "INFO"
-log_file = "/home/vagrant/node01/nomad/logs/"
+log_file = "/app/nomad/node01/logs/"
 log_rotate_duration = "24h"
 log_rotate_max_files = 0
 
@@ -28,9 +28,9 @@ server {
   // }
 }
 
-// client {
-//   enabled = true
-// }
+client {
+  enabled = true
+}
 
 // # You do not need to add this to your configuration file. This is an example
 // # that is part of Nomad's internal default configuration for Consul integration.

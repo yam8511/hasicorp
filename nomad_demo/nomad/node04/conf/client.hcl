@@ -1,22 +1,22 @@
 name = "node04"
-data_dir = "/home/vagrant/data/"
+data_dir = "/app/nomad/node04/data/"
 
-bind_addr = "192.168.33.14"
+bind_addr = "0.0.0.0"
 advertise {
   # Defaults to the first private IP address.
-  http = "192.168.33.14"
-  rpc  = "192.168.33.14"
-  serf = "192.168.33.14"
+  http = "node_04"
+  rpc  = "node_04"
+  serf = "node_04"
 }
 
 log_level = "INFO"
-log_file = "/home/vagrant/logs/"
+log_file = "/app/nomad/node04/logs/"
 log_rotate_duration = "24h"
 log_rotate_max_files = 0
 
 client {
   enabled = true
-  network_interface = "eth1"
+  // network_interface = "eth1"
 }
 
 plugin "raw_exec" {

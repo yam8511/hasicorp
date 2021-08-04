@@ -14,7 +14,7 @@ func main() {
 	flag.Parse()
 
 	http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
-		msg := "Hello ~ You're from " + r.RemoteAddr + ", serving by " + *addr
+		msg := "Hello ~ You're from " + r.RemoteAddr + ", serving by " + os.Getenv("NOMAD_HOST_ADDR_http")
 		fmt.Println(msg)
 		rw.Write([]byte(msg))
 	})
